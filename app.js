@@ -1,4 +1,5 @@
 const btn = document.getElementById("btn");
+const eyes = document.getElementById("eyes");
 let isClick = true;
 btn.addEventListener("click", () => {
   if (isClick) {
@@ -11,6 +12,12 @@ btn.addEventListener("click", () => {
   `;
     btn.style.background = "#fff200";
     btn.style.color = "#000";
+    eyes.addEventListener("mouseover", () => {
+      eyes.setAttribute("src", "./open.png");
+    });
+    eyes.addEventListener("mouseleave", () => {
+      eyes.setAttribute("src", "./close.png");
+    });
   } else {
     document.body.style = ` `;
     btn.style.background = "#000";
@@ -23,6 +30,7 @@ document.body.addEventListener("mousemove", () => {
   document.onmousemove = (e) => {
     x = e.clientX;
     y = e.clientY;
+    console.log(x, y);
     document.body.style.backgroundPosition = `${x - 250}px ${y - 250}px`;
   };
 });
